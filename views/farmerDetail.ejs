@@ -1,0 +1,21 @@
+<div class="row justify-content-center my-5">
+	<h1>Farmer Detail</h1>
+	<div class="d-flex text-decoration-none align-items-center">
+		<div class="col-6">
+			<img class="w-100" src="/uploads/<%= farmer.image %>" alt="">
+		</div>
+		<div class="col-4 ms-3">
+			<h2 style="color: #e4b303;"><%= farmer.name %> <%= farmer.family %></h2>
+			<p><%= farmer.description %></p>
+		</div>
+	</div>
+	<ul class="list-group w-50">
+		<% if(farmer.products){ %>
+			<p class="text-center" style="color: #679e9b;"><< products of <%= farmer.name %> >></p>
+			<% farmer.products.forEach((product)=>{ %>
+				<li style="background-color: #fbf8ee;" class="list-group-item"><%= product %></li>
+			<% }) %>
+		<% } %>
+	</ul>
+	<span style="font-size: 10px; color: #679e9b;" class="text-center mt-5">updatedAt: <%= farmer.updatedAt.toDateString() %></span>
+</div>

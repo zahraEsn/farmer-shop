@@ -1,0 +1,11 @@
+:root{
+	--bs-font-sans-serif: 'Rubik', sans-serif;
+}
+body{
+	background-color: #ffffff;
+	color: #222529;
+}
+h1{
+	color: #679e9b;
+	font-weight: bolder;
+}

@@ -1,0 +1,52 @@
+<!----- main body ----->
+<div class="row d-flex align-items-center g-5 py-4">
+	<div class="col-6">
+		<h1>Seasonal fruits delivered every month to your door, You can still try our European apple.</h1>
+		<a style="background-color: #679e9b;" href="#" class="btn btn-lg text-white px-5 me-auto">
+			Subscribe
+		</a>
+	</div>
+	<div class="col-6">
+		<img src="/images/f2.png" alt="">
+	</div>
+</div>
+
+<!----- Productions ----->
+<div class="row d-flex align-items-center justify-content-center py-4">
+	<div class="col-12 mb-3">
+		<div class="text-center py-2 rounded" style="color: #679e9b; background-color: #fcf8ee;">
+			<h3>Products</h3>
+		</div>
+	</div>
+	<% if(products.length){ %>
+		<% products.forEach((product)=>{ %>
+			<div class="col-2">
+				<img class="d-block" src="/images/<%= product.image %>" alt="">
+				<a class="ps-2" style="color: #679e9b;" href="#"><%= product.title %></a>
+			</div>
+		<% }) %>
+	<% } %>
+</div>
+
+<!----- Farmers ----->
+<div class="row justify-content-center" style="margin-top: 250px;">
+	<div class="text-center py-2 mb-5 rounded" style="color: #679e9b; background-color: #fcf8ee;">
+		<h3>Farmers</h3>
+	</div>
+	<% if(farmers.length){ %>
+		<% farmers.forEach((farmer)=>{ %>
+		<a href="/farmers/<%= farmer._id %>" style="color: #5f716f;" class="col-12 d-flex text-decoration-none align-items-center">
+			<div class="col-8">
+				<img width="700px" src="/uploads/<%= farmer.image %>" alt="">
+			</div>
+			<div class="ms-3 col-4">
+				<h2 style="color: #e4b303;"><%= farmer.name %> <%= farmer.family %></h2>
+				<p><%= farmer.description %></p>
+			</div>
+		</a>
+		<% }) %>
+	<% } %>
+	<% if(nextPage !== null){ %>
+		<a href="/?page=<%= nextPage %>" class="pagination ps-4" style="color: #5f716f;">&lt; view older farmer</a>
+	<% } %>
+</div>

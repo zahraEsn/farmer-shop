@@ -1,0 +1,16 @@
+<div class="row my-5">
+	<h1>Farmers</h1>
+	<% if(farmers.length){ %>
+		<% farmers.forEach((farmer)=>{ %>
+			<a href="/farmers/<%= farmer._id %>" style="color: #5f716f;" class="col-6 text-decoration-none align-items-center my-4">
+				<div class="col-6">
+					<img width="500px" src="/uploads/<%= farmer.image %>" alt="">
+				</div>
+				<div class="col-6 border-start border-3 border-warning ps-4">
+					<h2 style="color: #e4b303;"><%= farmer.name %> <%= farmer.family %></h2>
+					<p><%= farmer.description %></p>
+				</div>
+			</a>
+		<% }) %>
+	<% } %>
+</div>

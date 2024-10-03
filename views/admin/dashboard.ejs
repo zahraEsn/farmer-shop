@@ -1,0 +1,26 @@
+<div class="row my-5">
+	<h1>Dashboard</h1>
+	<a href="/signUp" class="text-decoration-none"><button type="button" class="btn btn-warning d-flex align-items-center px-5"><i class="bi bi-person-add me-2" style="font-size: 25px;"></i>Add New Farmer</button></a>
+	<% if(farmers.length){ %>
+		<% farmers.forEach((farmer)=>{ %>
+			<div style="color: #5f716f;" class="col-6 text-decoration-none align-items-center my-4">
+				<div class="col-6">
+					<img width="500px" src="/uploads/<%= farmer.image %>" alt="">
+				</div>
+				<div class="col-6 border-start border-3 border-warning ps-4">
+					<h2 style="color: #e4b303;"><%= farmer.name %> <%= farmer.family %></h2>
+					<p>Updated At: <%= farmer.updatedAt.toDateString() %></p>
+				</div>
+				<div class="d-flex row">
+					<a class="col-1" href="/edit/<%= farmer._id %>"><button type="button" class="btn btn-outline-success"><i class="bi bi-pencil-square"></i></button></a>
+					<form action="/delete/<%= farmer._id %>?_method=DELETE" class="col-1" method="POST">
+						<button type="submit" value="delete" class="btn btn-outline-danger"><i class="bi bi-trash3"></i></button>
+					</form>
+				</div>
+			</div>
+		<% }) %>
+		<% if(nextPage !== null){ %>
+			<a href="/dashboard?page=<%= nextPage %>" class="pagination ps-4" style="color: #5f716f;">&lt; view older farmer</a>
+		<% } %>
+	<% } %>
+</div>

@@ -1,0 +1,16 @@
+<div class="row justify-content-center my-5">
+	<h1>Search Result</h1>
+	<% if(farmers.length){ %>
+		<% farmers.forEach((farmer)=>{ %>
+			<div class="col-12 d-flex text-decoration-none align-items-center">
+				<img src="/uploads/<%= farmer.image %>" alt="">
+				<div>
+					<h2 style="color: #e4b303;"><%= farmer.name %> <%= farmer.family %></h2>
+					<p><%= farmer.description %></p>
+				</div>
+			</div>
+		<% }) %>
+	<% } else{ %>
+		<p>there is no result</p>
+	<% } %>
+</div>

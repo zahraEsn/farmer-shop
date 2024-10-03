@@ -1,0 +1,39 @@
+<form action="/edit/<%= farmer._id %>?_method=PUT" method="POST" class="rounded-2 py-4 px-5 mt-4" style="background-color: #fcf8ee; color: #679e9b;">
+	<div class="form-row row d-flex align-items-center justify-content-center">
+		<h1>Edit Info</h1>
+    <div class="col-md-6">
+			<%= farmer.name %>
+      <label class="ms-1" for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="enter your name" value="<%= farmer.name %>">
+    </div>
+    <div class="col-md-6">
+      <label class="ms-1" for="family">Family</label>
+      <input type="text" class="form-control" id="family" name="family" placeholder="enter your family" value="<%= farmer.family %>">
+    </div>
+  </div>
+  <div class="mt-3">
+    <label class="ms-1" for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="gmail" placeholder="sample123@email.com" value="<%= farmer.gmail %>">
+  </div>
+  <div class="mt-3">
+    <label class="ms-1" for="image">Image</label>
+    <input type="file" class="form-control" id="image" name="image" accept="image/*" value="<%= farmer.image %>">
+  </div>
+	<div class="col-12 mt-3">
+		<label for="description" class="form-label">Description</label>
+		<textarea name="description" id="description" class="form-control" cols="30" rows="4" value="<%= farmer.description %>"></textarea>
+	</div>
+	<div class="col-12 mt-3">
+		<label for="products">Select Products</label>
+		<select class="form-select" name="products" aria-label="Products" multiple value="<%= farmer.products %>">
+			<option value="fruit">fruit</option>
+			<option value="dairy">dairy</option>
+			<option value="condiments">condiments</option>
+			<option value="fatsoils">fatsoils</option>
+			<option value="sweets">sweets</option>
+			<option value="vegetables">vegetables</option>
+		</select>
+	</div>
+	<button type="submit" class="btn btn-warning mt-3">Edit</button>
+	<a href="/dashboard"><button type="button" class="btn btn-warning mt-3">Cancel</button></a>
+</form>
